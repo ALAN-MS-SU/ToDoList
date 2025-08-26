@@ -1,7 +1,7 @@
 import { Item } from './Item';
 
 export class List {
-  private Data: Item[] = [];
+  public Data: Item[] = [];
   constructor(...Data: Item[]) {
     if (Data) {
       this.Data = [...Data];
