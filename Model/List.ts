@@ -1,4 +1,3 @@
-'use client';
 import { Item } from './Item';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export class List {
@@ -9,10 +8,12 @@ export class List {
   }
 
   public async Add(Item: Item) {
+    this.Data = await this.Get();
     this.Data.push(Item);
     await AsyncStorage.setItem('Data', JSON.stringify(this.Data));
   }
   public async Delete({ ID }: Pick<Item, 'ID'>) {
+    this.Data = await this.Get();
     this.Data = this.Data.filter((Item) => {
       if (Item.ID !== ID) return Item;
     });
@@ -33,7 +34,7 @@ export class List {
         if (Status) {
           Item.Status = Status;
         }
-        AsyncStorage.setItem('Data', JSON.stringify(this.Data));
+        await AsyncStorage.setItem('Data', JSON.stringify(this.Data));
         this.Data = await this.Get();
       }
     });

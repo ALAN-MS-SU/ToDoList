@@ -1,6 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { Input } from '../ui/input';
+import { Text } from '../ui/text';
 import { Button } from '../ui/button';
 import { Item, List } from '@/Model';
 import uuid from 'react-native-uuid';
@@ -30,7 +31,7 @@ export default function Add() {
             await list.Add(new Item(uuid.v4(), FormData.Name, 0));
             router.push('/');
           })}>
-          ADD
+          <Text className='font-bold'>ADD</Text>
         </Button>
       </View>
     </View>
