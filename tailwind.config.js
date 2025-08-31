@@ -65,9 +65,6 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'loading': 'var(--loading)',
       },
-      fontFamily: {
-        saira: ['var(--saira)'],
-      }
     },
   },
   future: {

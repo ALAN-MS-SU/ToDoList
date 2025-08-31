@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Platform, Text as RNText, type Role } from 'react-native';
 const textVariants = cva(
   cn(
-    'font-saira text-base text-foreground',
+    'text-base text-foreground',
     Platform.select({
       web: 'select-text',
     })
@@ -66,24 +66,15 @@ const TextClassContext = React.createContext<string | undefined>(undefined);
 function Text({
   className,
   asChild = false,
-  variant = 'default',
   ...props
 }: React.ComponentProps<typeof RNText> &
   TextVariantProps &
   React.RefAttributes<RNText> & {
     asChild?: boolean;
   }) {
-  const textClass = React.useContext(TextClassContext);
   const Component = asChild ? Slot.Text : RNText;
-  const test = cn( textClass, className)
-  return (
-    <Component
-      className={test}
-      role={variant ? ROLE[variant] : undefined}
-      aria-level={variant ? ARIA_LEVEL[variant] : undefined}
-      {...props}
-    />
-  );
+
+  return <Component className={cn(className)} {...props} />;
 }
 
 export { Text, TextClassContext };

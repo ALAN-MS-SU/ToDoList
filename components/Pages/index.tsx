@@ -19,7 +19,7 @@ export default function Screen() {
   }, []);
   const router = useRouter();
   return (
-    <View className="h-full">
+    <View className="h-full bg-white">
       <ScrollView className="mt-[100px] h-auto w-screen">
         {Data ? (
           <>
@@ -36,7 +36,7 @@ export default function Screen() {
               </>
             ) : (
               <View className="flex w-full items-center justify-center">
-                {/* <Text className="text-black">Não há registros no momento</Text> */}
+                 <Text className="text-black text-xl">Não há registros no momento</Text> 
               </View>
             )}
           </>
@@ -52,7 +52,7 @@ export default function Screen() {
         onPress={() => {
           router.push('/Item/add');
         }}
-        className="absolute bottom-10 left-[35%] h-[50px] w-[30%] bg-blue-500 text-4xl hover:bg-blue-700">
+        className="absolute bottom-[10px] left-[35%] h-[50px] w-[30%] bg-blue-500 text-4xl hover:bg-blue-700">
         <Plus color={'white'} className="h-full w-full" />
       </Button>
     </View>

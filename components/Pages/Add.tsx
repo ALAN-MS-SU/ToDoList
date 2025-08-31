@@ -15,7 +15,7 @@ export default function Add() {
     },
   });
   return (
-    <View className="flex flex-col items-center justify-between">
+    <View className="flex flex-col items-center justify-between bg-white">
       <View className="flex h-screen w-[80%] flex-col items-center justify-center gap-y-[80px]">
         <Controller
           name="Name"
@@ -32,11 +32,11 @@ export default function Add() {
         <Button
           className="w-[100px] bg-green-500 hover:bg-green-700"
           onPress={handleSubmit(async (FormData) => {
-             if (FormData.Name === '' && !FormData.Name) return;
-             await list.Add(new Item(uuid.v4(), FormData.Name, 0));
-             router.push('/');
+            if (FormData.Name === '' && !FormData.Name) return;
+            await list.Add(new Item(uuid.v4(), FormData.Name, 0));
+            router.push('/');
           })}>
-          <Text className="font-bold">ADD</Text>
+          <Text className="font-saira font-bold text-white">ADD</Text>
         </Button>
       </View>
     </View>
