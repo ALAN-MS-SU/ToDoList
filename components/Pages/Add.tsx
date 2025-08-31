@@ -21,17 +21,22 @@ export default function Add() {
           name="Name"
           control={control}
           render={({ field: { value, onChange } }) => (
-            <Input value={value} onChange={onChange} placeholder="Nome da tarefa" Label="Tarefa" />
+            <Input
+              onChangeText={onChange}
+              value={value}
+              placeholder="Nome da tarefa"
+              Label="Tarefa"
+            />
           )}
         />
         <Button
           className="w-[100px] bg-green-500 hover:bg-green-700"
           onPress={handleSubmit(async (FormData) => {
-            if (FormData.Name === '' && !FormData.Name) return;
-            await list.Add(new Item(uuid.v4(), FormData.Name, 0));
-            router.push('/');
+             if (FormData.Name === '' && !FormData.Name) return;
+             await list.Add(new Item(uuid.v4(), FormData.Name, 0));
+             router.push('/');
           })}>
-          <Text className='font-bold'>ADD</Text>
+          <Text className="font-bold">ADD</Text>
         </Button>
       </View>
     </View>

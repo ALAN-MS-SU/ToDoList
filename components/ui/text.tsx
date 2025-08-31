@@ -3,10 +3,9 @@ import * as Slot from '@rn-primitives/slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Platform, Text as RNText, type Role } from 'react-native';
-
 const textVariants = cva(
   cn(
-    'text-base text-foreground',
+    'font-saira text-base text-foreground',
     Platform.select({
       web: 'select-text',
     })
@@ -14,7 +13,7 @@ const textVariants = cva(
   {
     variants: {
       variant: {
-        default: 'font-saira',
+        default: '',
         h1: cn(
           'text-center text-4xl font-extrabold tracking-tight',
           Platform.select({ web: 'scroll-m-20 text-balance' })
@@ -76,9 +75,10 @@ function Text({
   }) {
   const textClass = React.useContext(TextClassContext);
   const Component = asChild ? Slot.Text : RNText;
+  const test = cn( textClass, className)
   return (
     <Component
-      className={cn(textVariants({ variant }), textClass, className)}
+      className={test}
       role={variant ? ROLE[variant] : undefined}
       aria-level={variant ? ARIA_LEVEL[variant] : undefined}
       {...props}

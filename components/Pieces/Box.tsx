@@ -17,7 +17,7 @@ export function Box({
     return (
       <View
         className={`mt-[5px] flex h-[100px] w-full flex-row items-center justify-around border-b-[2px] border-t-[2px] border-primary p-[10px]`}>
-        <Text className="flex w-[80px] items-center justify-center text-sm font-bold">
+        <Text className=" w-[80px] text-sm text-center font-bold">
           {Name.length <= 10 ? Name : `${Name.slice(0, 6)}...`}
         </Text>
         <Button
@@ -27,7 +27,7 @@ export function Box({
             Update(Data);
           }}
           className="h-[50px] w-[75px] bg-green-500 hover:bg-green-700">
-          <Check className="h-full w-full text-white" />
+          <Check color={'white'} className="h-full w-full" />
         </Button>
         <Button
           onPress={async () => {
@@ -36,16 +36,16 @@ export function Box({
             Update(Data);
           }}
           className="h-[50px] w-[75px] bg-red-500 hover:bg-red-700">
-          <Trash2 className="h-full w-full text-white" />
+          <Trash2 color={'white'} className="h-full w-full" />
         </Button>
       </View>
     );
   if (Status == 1)
     return (
       <View
-        className={`mt-[5px] flex h-[100px] w-full flex-row items-center justify-around border-b-[2px] border-t-[2px] border-primary bg-green-300`}>
-        <Text className="flex w-[80px] items-center justify-center text-sm font-bold">
-          {Name.length <= 10 ? Name : `${Name.slice(0, 6)}...`}
+        className={`mt-[5px] flex h-[100px] w-full flex-row items-center justify-around border-b-[2px] border-t-[2px] border-primary bg-green-500`}>
+        <Text className="w-[160px] text-center text-sm font-bold text-white">
+          {Name.length <= 15 ? Name : `${Name.slice(0, 11)}...`}
         </Text>
         <Button
           onPress={async () => {
@@ -54,7 +54,7 @@ export function Box({
             Update(Data);
           }}
           className="h-[50px] w-[75px] bg-red-500 hover:bg-red-700">
-          <Trash2 className="h-full w-full text-white" />
+          <Trash2 color={'white'} className="h-full w-full" />
         </Button>
       </View>
     );
