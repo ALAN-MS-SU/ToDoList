@@ -10,7 +10,7 @@ export {
 
 export default function RootLayout() {
   return (
-    <SafeAreaView className='w-screen h-screen '>
+    <SafeAreaView className='w-screen h-screen'>
       <StatusBar />
       <Stack screenOptions={{ headerShown: false }} />
       <PortalHost />
